@@ -30,12 +30,14 @@ export default class Game extends Phaser.Scene {
 
 		// player-character
 		const player_character = this.add.sprite(235, 644, "player-character");
+		player_character.name = "player-character";
 		player_character.scaleX = 0.3;
 		player_character.scaleY = 0.3;
 		player_character.flipX = true;
 
 		// lop-character
 		const lop_character = this.add.sprite(895, 603, "lop");
+		lop_character.name = "lop-character";
 		lop_character.scaleX = 0.1;
 		lop_character.scaleY = 0.1;
 
@@ -55,6 +57,26 @@ export default class Game extends Phaser.Scene {
 		const frisbee = this.add.sprite(339, 658, "frisbee");
 		frisbee.scaleX = 0.5;
 		frisbee.scaleY = 0.5;
+		frisbee.setInteractive();
+		
+		// Store initial position
+		const initialX = frisbee.x;
+		const initialY = frisbee.y;
+		
+		frisbee.on('pointerdown', () => {
+			this.tweens.add({
+				targets: frisbee,
+				x: 895,
+				y: 603,
+				duration: 1500,
+				yoyo: true,
+				ease: 'Cubic.easeInOut',
+				onComplete: () => {
+					frisbee.x = initialX;
+					frisbee.y = initialY;
+				}
+			});
+		});
 
 		// text_1
 		const text_1 = this.add.text(370, 698, "", {});
@@ -69,13 +91,31 @@ export default class Game extends Phaser.Scene {
 	// Write your code here
 
 	create() {
-
         this.editorCreate();
 
         this.cameras.main.setBackgroundColor(0x000000);
 
-        EventBus.emit('current-scene-ready', this);
+        // Add bouncing animation to player character
+        this.tweens.add({
+            targets: this.children.list.find(child => child.name === 'player-character'),
+            y: '+=20',
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
 
+        // Add bouncing animation to lop character
+        this.tweens.add({
+            targets: this.children.list.find(child => child.name === 'lop-character'),
+            y: '+=20',
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
+
+        EventBus.emit('current-scene-ready', this);
 	}
 
     changeScene ()
