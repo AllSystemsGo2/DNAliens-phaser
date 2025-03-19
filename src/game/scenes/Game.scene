@@ -1,0 +1,105 @@
+{
+    "id": "fe9dec0b-9530-4ff6-a5a1-14fb1c57bb41",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Game",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1024,
+        "borderHeight": 768
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "cd0be28e-bb4f-4cb5-bedd-f9a0b9b35f0b",
+            "label": "background",
+            "texture": {
+                "key": "starry-background"
+            },
+            "x": 525,
+            "y": 250,
+            "alpha": 0.5,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "43585fd8-35ab-4298-8f02-55c3624983bd",
+                    "label": "shineFx",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "9f4baaea-6306-4bb6-a399-2cc6e98502c3",
+            "label": "planet",
+            "texture": {
+                "key": "planet-foreground"
+            },
+            "x": 182,
+            "y": 679,
+            "scaleX": 0.8256807618576166,
+            "scaleY": 0.4273117498493313
+        },
+        {
+            "type": "Sprite",
+            "id": "ea5c8fed-76a9-46c6-80af-a2c2a337b41e",
+            "label": "player-character",
+            "texture": {
+                "key": "player-character"
+            },
+            "x": 235,
+            "y": 644,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "flipX": true
+        },
+        {
+            "type": "Sprite",
+            "id": "42bfc22a-2b80-4f81-ae4f-84e7eb734544",
+            "label": "lop-character",
+            "texture": {
+                "key": "lop"
+            },
+            "x": 895,
+            "y": 603,
+            "scaleX": 0.1,
+            "scaleY": 0.1
+        },
+        {
+            "type": "Sprite",
+            "id": "b61a755e-c7fa-43c9-ba98-ecdd681e7609",
+            "label": "sprite_1",
+            "texture": {
+                "key": "spaceship-256"
+            },
+            "x": 1125,
+            "y": 113,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "angle": -166
+        },
+        {
+            "type": "Sprite",
+            "id": "9b290089-2377-4469-8ca0-1f52729ced5f",
+            "label": "sprite_2",
+            "texture": {
+                "key": "spaceship-crashed-2048"
+            },
+            "x": -452,
+            "y": 561,
+            "scaleX": 0.2,
+            "scaleY": 0.2,
+            "angle": 172
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

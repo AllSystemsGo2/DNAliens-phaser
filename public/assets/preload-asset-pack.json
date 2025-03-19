@@ -1,0 +1,104 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": "assets/crash.png",
+                "type": "image",
+                "key": "crash"
+            },
+            {
+                "url": [
+                    "assets/fabric-glitter-rustle-17395.mp3"
+                ],
+                "type": "audio",
+                "key": "fabric-glitter-rustle-17395"
+            },
+            {
+                "url": "assets/logo.png",
+                "type": "image",
+                "key": "logo"
+            },
+            {
+                "url": "assets/lop.png",
+                "type": "image",
+                "key": "lop"
+            },
+            {
+                "url": "assets/planet-foreground.png",
+                "type": "image",
+                "key": "planet-foreground"
+            },
+            {
+                "url": "assets/player-character.png",
+                "type": "image",
+                "key": "player-character"
+            },
+            {
+                "url": "assets/player-character-2.png",
+                "type": "image",
+                "key": "player-character-2"
+            },
+            {
+                "url": "assets/spaceship-2048.png",
+                "type": "image",
+                "key": "spaceship-2048"
+            },
+            {
+                "url": "assets/spaceship-256.png",
+                "type": "image",
+                "key": "spaceship-256"
+            },
+            {
+                "url": [
+                    "assets/spaceship-crash.mp3"
+                ],
+                "type": "audio",
+                "key": "spaceship-crash"
+            },
+            {
+                "url": "assets/spaceship-crashed-2048.png",
+                "type": "image",
+                "key": "spaceship-crashed-2048"
+            },
+            {
+                "url": [
+                    "assets/spaceship-flight.mp3"
+                ],
+                "type": "audio",
+                "key": "spaceship-flight"
+            },
+            {
+                "url": [
+                    "assets/spaceship-flight-crash.ogg"
+                ],
+                "type": "audio",
+                "key": "spaceship-flight-crash"
+            },
+            {
+                "url": [
+                    "assets/spaceship-rustling.ogg"
+                ],
+                "type": "audio",
+                "key": "spaceship-rustling"
+            },
+            {
+                "url": "assets/star.png",
+                "type": "image",
+                "key": "star"
+            },
+            {
+                "url": "assets/starry-background.jpg",
+                "type": "image",
+                "key": "starry-background"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false,
+        "visible": true
+    }
+}
