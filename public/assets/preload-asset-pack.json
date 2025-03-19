@@ -14,6 +14,11 @@
                 "key": "fabric-glitter-rustle-17395"
             },
             {
+                "url": "assets/frisbee.png",
+                "type": "image",
+                "key": "frisbee"
+            },
+            {
                 "url": "assets/logo.png",
                 "type": "image",
                 "key": "logo"

@@ -51,6 +51,16 @@ export default class Game extends Phaser.Scene {
 		sprite_2.scaleY = 0.2;
 		sprite_2.angle = 172;
 
+		// frisbee
+		const frisbee = this.add.sprite(339, 658, "frisbee");
+		frisbee.scaleX = 0.5;
+		frisbee.scaleY = 0.5;
+
+		// text_1
+		const text_1 = this.add.text(370, 698, "", {});
+		text_1.text = "Click the frisbee to throw it!";
+		text_1.setStyle({ "backgroundColor": "#087590ff", "strokeThickness": 0.5 });
+
 		this.events.emit("scene-awake");
 	}
 

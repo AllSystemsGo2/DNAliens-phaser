@@ -93,6 +93,28 @@
             "scaleX": 0.2,
             "scaleY": 0.2,
             "angle": 172
+        },
+        {
+            "type": "Sprite",
+            "id": "aae53d2c-9eb1-4d34-9d1f-b7ba4382210c",
+            "label": "frisbee",
+            "texture": {
+                "key": "frisbee"
+            },
+            "x": 339,
+            "y": 658,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        },
+        {
+            "type": "Text",
+            "id": "895ec267-6b49-4b7f-ba56-26987d6d5910",
+            "label": "text_1",
+            "x": 370,
+            "y": 698,
+            "text": "Click the frisbee to throw it!",
+            "strokeThickness": 0.5,
+            "backgroundColor": "#087590ff"
         }
     ],
     "plainObjects": [],
