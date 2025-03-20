@@ -71,7 +71,7 @@
         {
             "type": "Sprite",
             "id": "b61a755e-c7fa-43c9-ba98-ecdd681e7609",
-            "label": "sprite_1",
+            "label": "spaceship",
             "texture": {
                 "key": "spaceship-256"
             },
@@ -84,7 +84,7 @@
         {
             "type": "Sprite",
             "id": "9b290089-2377-4469-8ca0-1f52729ced5f",
-            "label": "sprite_2",
+            "label": "spaceship_crashed",
             "texture": {
                 "key": "spaceship-crashed-2048"
             },
@@ -115,6 +115,27 @@
             "text": "Click the frisbee to throw it!",
             "strokeThickness": 0.5,
             "backgroundColor": "#087590ff"
+        },
+        {
+            "type": "Sprite",
+            "id": "c23e327b-4f91-4462-8a3d-4d8e80cb3c3f",
+            "label": "crash",
+            "texture": {
+                "key": "crash"
+            },
+            "x": 184,
+            "y": 425,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Glow",
+                    "id": "4ff8d00e-57e3-49bf-a4e6-e2f3e3921102",
+                    "label": "glowFx",
+                    "color": "#f8fe83"
+                }
+            ]
         }
     ],
     "plainObjects": [],

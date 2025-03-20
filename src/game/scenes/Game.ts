@@ -30,58 +30,51 @@ export default class Game extends Phaser.Scene {
 
 		// player-character
 		const player_character = this.add.sprite(235, 644, "player-character");
-		player_character.name = "player-character";
+		player_character.name="player-character";
 		player_character.scaleX = 0.3;
 		player_character.scaleY = 0.3;
 		player_character.flipX = true;
 
 		// lop-character
 		const lop_character = this.add.sprite(895, 603, "lop");
-		lop_character.name = "lop-character";
+		lop_character.name="lop-character";
 		lop_character.scaleX = 0.1;
 		lop_character.scaleY = 0.1;
 
-		// sprite_1
-		const sprite_1 = this.add.sprite(1125, 113, "spaceship-256");
-		sprite_1.scaleX = 0.5;
-		sprite_1.scaleY = 0.5;
-		sprite_1.angle = -166;
+		// spaceship
+		const spaceship = this.add.sprite(1125, 113, "spaceship-256");
+		spaceship.name="spaceship";
+		spaceship.scaleX = 0.5;
+		spaceship.scaleY = 0.5;
+		spaceship.angle = -166;
 
-		// sprite_2
-		const sprite_2 = this.add.sprite(-452, 561, "spaceship-crashed-2048");
-		sprite_2.scaleX = 0.2;
-		sprite_2.scaleY = 0.2;
-		sprite_2.angle = 172;
+		// spaceship_crashed
+		const spaceship_crashed = this.add.sprite(-452, 561, "spaceship-crashed-2048");
+		spaceship_crashed.scaleX = 0.2;
+		spaceship_crashed.scaleY = 0.2;
+		spaceship_crashed.angle = 172;
 
 		// frisbee
 		const frisbee = this.add.sprite(339, 658, "frisbee");
+		frisbee.name="frisbee";
 		frisbee.scaleX = 0.5;
 		frisbee.scaleY = 0.5;
 		frisbee.setInteractive();
-		
-		// Store initial position
-		const initialX = frisbee.x;
-		const initialY = frisbee.y;
-		
-		frisbee.on('pointerdown', () => {
-			this.tweens.add({
-				targets: frisbee,
-				x: 895,
-				y: 603,
-				duration: 1500,
-				yoyo: true,
-				ease: 'Cubic.easeInOut',
-				onComplete: () => {
-					frisbee.x = initialX;
-					frisbee.y = initialY;
-				}
-			});
-		});
 
 		// text_1
 		const text_1 = this.add.text(370, 698, "", {});
 		text_1.text = "Click the frisbee to throw it!";
 		text_1.setStyle({ "backgroundColor": "#087590ff", "strokeThickness": 0.5 });
+
+		// crash
+		const crash = this.add.sprite(184, 425, "crash");
+		crash.name="crash";
+		crash.scaleX = 0.25;
+		crash.scaleY = 0.25;
+		crash.visible = false;
+
+		// glowFx
+		crash.postFX!.addGlow(16318083, 4, 0, false, 0.1, 10);
 
 		this.events.emit("scene-awake");
 	}
@@ -114,6 +107,49 @@ export default class Game extends Phaser.Scene {
             repeat: -1,
             ease: 'Sine.easeInOut'
         });
+
+			const frisbee = this.children.list.find(child => child.name === 'frisbee') as Phaser.GameObjects.Sprite;
+			// Store initial position
+			const initialX = frisbee.x;
+			const initialY = frisbee.y;
+			let hasBeenClicked = false;
+
+			frisbee.on('pointerdown', () => {
+				// Frisbee animation
+				this.tweens.add({
+					targets: frisbee,
+					x: 895,
+					y: 603,
+					duration: 1500,
+					yoyo: true,
+					ease: 'Cubic.easeInOut',
+					onComplete: () => {
+						frisbee.x = initialX;
+						frisbee.y = initialY;
+					}
+				});
+
+				// Trigger spaceship animation only on first click
+				if (!hasBeenClicked) {
+					hasBeenClicked = true;
+					this.time.delayedCall(2000, () => {
+						// Play spaceship sound
+						this.sound.play('spaceship-flight-crash');
+
+						this.tweens.add({
+							targets: this.children.list.find(child => child.name === 'spaceship') as Phaser.GameObjects.Sprite,
+							x: -160,
+							y: 480,
+							duration: 3000,
+							ease: 'Linear'
+						});
+					});
+					this.time.delayedCall(5000, () => {
+						const crash = this.children.list.find(child => child.name === 'crash') as Phaser.GameObjects.Sprite;
+						crash.visible = true;	
+					});
+				}
+			});
 
         EventBus.emit('current-scene-ready', this);
 	}
